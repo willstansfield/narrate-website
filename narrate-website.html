@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narrate — Voice-first billing for attorneys</title>
+  <meta name="description" content="Narrate turns spoken time entries into polished billing narratives and saves them directly to Clio. In seconds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1E3A5F;
+      --navy-dark: #0D1B3E;
+      --teal:      #02C4D8;
+      --sand:      #F5F4F1;
+      --sand-dark: #E8E6E1;
+      --ink:       #1C1C1E;
+      --ink-mid:   #374151;
+      --ink-light: #1F2937;
+      --white:     #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-mark {
+      width: 36px; height: 36px;
+      background: var(--navy);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .nav-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .nav-tag {
+      font-size: 13px;
+      color: var(--ink-mid);
+      font-weight: 400;
+    }
+
+    /* ── Sections ── */
+    section { width: 100%; }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--navy-dark);
+      padding: 160px 40px 120px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Problem ── */
+    .problem {
+      background: var(--sand);
+      padding: 100px 40px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .problem-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.25;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    .problem-body {
+      font-size: 17px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 580px;
+    }
+    .problem-body p + p { margin-top: 20px; }
+
+    /* ── How it works ── */
+    .how {
+      background: var(--white);
+      padding: 100px 40px;
+    }
+    .how-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 64px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.67% + 28px);
+      right: calc(16.67% + 28px);
+      height: 1px;
+      background: var(--sand-dark);
+    }
+    .step { padding: 0 32px 0 0; }
+    .step:last-child { padding-right: 0; }
+    .step-number {
+      width: 56px; height: 56px;
+      background: var(--sand);
+      border: 1px solid var(--sand-dark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .step-desc {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* ── Outcomes ── */
+    .outcomes {
+      background: var(--navy);
+      padding: 100px 40px;
+    }
+    .outcomes-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 64px;
+      max-width: 480px;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .outcome-item {
+      background: rgba(255,255,255,0.04);
+      padding: 40px 36px;
+    }
+    .outcome-item:hover {
+      background: rgba(255,255,255,0.07);
+    }
+    .outcome-accent {
+      width: 32px;
+      height: 3px;
+      background: var(--teal);
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+    .outcome-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .outcome-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+
+    /* ── Clio ── */
+    .clio {
+      background: var(--sand);
+      padding: 100px 40px;
+    }
+    .clio-inner {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+    }
+    .clio-text { flex: 1; }
+    .clio-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+    .clio-body {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+    }
+    .clio-badge {
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1px solid var(--sand-dark);
+      border-radius: 16px;
+      padding: 32px 40px;
+      text-align: center;
+      min-width: 220px;
+    }
+    .clio-badge-dot {
+      width: 10px; height: 10px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .clio-badge-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      vertical-align: middle;
+    }
+    .clio-badge-label {
+      display: block;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--ink-mid);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy-dark);
+      padding: 60px 40px;
+    }
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-mark {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--white);
+    }
+    .footer-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-right {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 120px 24px 80px; }
+      .problem, .how, .outcomes, .clio { padding: 72px 24px; }
+      .steps { grid-template-columns: 1fr; gap: 48px; }
+      .steps::before { display: none; }
+      .step { padding: 0; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .clio-inner { flex-direction: column; gap: 40px; }
+      .clio-badge { width: 100%; }
+      footer { padding: 48px 24px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <div class="nav-mark">N</div>
+      <span class="nav-name">Narrate</span>
+    </a>
+    <span class="nav-tag">Voice-first billing for attorneys</span>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Introducing Narrate</div>
+    <h1 class="hero-headline">Billing narratives. Dictated, polished, done.</h1>
+    <p class="hero-sub">Speak your time entry. Narrate turns it into a professional billing narrative and saves it directly to Clio — in seconds.</p>
+  </section>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-label">The problem</div>
+      <h2 class="problem-headline">Most attorneys write their time entries at the end of the day. From memory.</h2>
+      <div class="problem-body">
+        <p>That means vague narratives, missing detail, and time that gets written off before it ever reaches a client invoice. The billing entry — one of the most important tasks in a law firm — is the one that gets the least attention.</p>
+        <p>Narrate changes that. By making it faster to bill in the moment than to put it off, attorneys capture more time, with better detail, every day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2 class="how-headline">Three steps. Under ten seconds.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">Dictate</div>
+          <p class="step-desc">Speak your time entry naturally, the same way you'd describe it to a colleague. No formatting required.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">Polish</div>
+          <p class="step-desc">Narrate transcribes your note and rewrites it as a professional, detailed billing narrative — instantly.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">Save to Clio</div>
+          <p class="step-desc">Review, adjust the hours if needed, and save directly to the right matter in Clio. Done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="outcomes">
+    <div class="container">
+      <div class="section-label" style="color: var(--teal);">The difference</div>
+      <h2 class="outcomes-headline">What changes when billing takes ten seconds.</h2>
+      <div class="outcome-grid">
+        <div class="outcome-item">
+          <div class="outcome-accent"></div>
+          <div class="outcome-title">More time captured</div>
+          <p class="outcome-desc">Attorneys bill in the moment, not from memory at 6pm. Less gets forgotten. Less gets written off.</p>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-accent"></div>
+          <div class="outcome-title">Better narratives</div>
+          <p class="outcome-desc">Entries are specific, professional, and client-ready — without the attorney spending time crafting them.</p>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-accent"></div>
+          <div class="outcome-title">Less time at a desk</div>
+          <p class="outcome-desc">End-of-day billing sessions disappear. Attorneys leave when the work is done — not when the entries are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clio integration -->
+  <section class="clio">
+    <div class="container">
+      <div class="clio-inner">
+        <div class="clio-text">
+          <div class="section-label">Clio integration</div>
+          <h2 class="clio-headline">Built for firms that run on Clio.</h2>
+          <p class="clio-body">Narrate connects directly to your Clio account. Time entries are saved to the right matter, under the right attorney, with the right date — automatically. No copy-pasting, no switching tabs.</p>
+        </div>
+        <div class="clio-badge">
+          <div>
+            <span class="clio-badge-dot"></span>
+            <span class="clio-badge-text">Clio Connected</span>
+          </div>
+          <span class="clio-badge-label">Native Clio API integration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-mark">N</div>
+        <div>
+          <div class="footer-name">Narrate</div>
+          <div class="footer-tagline">Voice-first billing for attorneys</div>
+        </div>
+      </div>
+      <div class="footer-right">© 2026 Narrate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
