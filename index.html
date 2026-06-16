@@ -140,6 +140,7 @@
     .problem {
       background: var(--sand);
       padding: 100px 40px;
+      text-align: center;
     }
     .section-label {
       font-size: 11px;
@@ -156,13 +157,15 @@
       color: var(--navy);
       line-height: 1.25;
       max-width: 600px;
-      margin-bottom: 32px;
+      margin: 0 auto 32px;
     }
     .problem-body {
       font-size: 17px;
       color: var(--ink-mid);
       line-height: 1.8;
       max-width: 580px;
+      margin: 0 auto;
+      text-align: left;
     }
     .problem-body p + p { margin-top: 20px; }
 
@@ -170,6 +173,7 @@
     .how {
       background: var(--white);
       padding: 100px 40px;
+      text-align: center;
     }
     .how-headline {
       font-family: 'Lora', Georgia, serif;
@@ -193,7 +197,7 @@
       height: 1px;
       background: var(--sand-dark);
     }
-    .step { padding: 0 32px 0 0; }
+    .step { padding: 0 32px 0 0; text-align: left; }
     .step:last-child { padding-right: 0; }
     .step-number {
       width: 56px; height: 56px;
@@ -205,7 +209,7 @@
       font-size: 20px;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 28px;
+      margin: 0 auto 28px;
       position: relative;
       z-index: 1;
     }
@@ -225,13 +229,14 @@
     .outcomes {
       background: var(--navy);
       padding: 100px 40px;
+      text-align: center;
     }
     .outcomes-headline {
       font-family: 'Lora', Georgia, serif;
       font-size: clamp(26px, 3.5vw, 38px);
       font-weight: 600;
       color: var(--white);
-      margin-bottom: 64px;
+      margin: 0 auto 64px;
       max-width: 480px;
     }
     .outcome-grid {
@@ -246,6 +251,7 @@
     .outcome-item {
       background: rgba(255,255,255,0.04);
       padding: 40px 36px;
+      text-align: left;
     }
     .outcome-item:hover {
       background: rgba(255,255,255,0.07);
@@ -367,6 +373,212 @@
       color: rgba(255,255,255,0.3);
     }
 
+    /* ── Pricing ── */
+    .pricing {
+      background: var(--navy-dark);
+      padding: 100px 40px;
+      text-align: center;
+    }
+    .pricing .section-label { color: var(--teal); }
+    .pricing-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .pricing-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin: 0 auto 56px;
+      line-height: 1.7;
+    }
+    .pricing-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .pricing-amount {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .pricing-dollar {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+    }
+    .pricing-number {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 64px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pricing-per {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .pricing-roi {
+      font-size: 13px;
+      color: var(--teal);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+    .pricing-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 28px;
+    }
+    .pricing-features {
+      list-style: none;
+      padding: 0; margin: 0 0 36px;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      padding: 6px 0;
+    }
+    .pricing-features li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(13, 27, 62, 0.7);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 48px 44px;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+      animation: modal-in 0.2s ease;
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: var(--ink-mid);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .modal-close:hover { background: var(--sand); }
+    .modal-headline {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .modal-sub {
+      font-size: 15px;
+      color: var(--ink-mid);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .form-row { margin-bottom: 18px; }
+    .form-row label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+    .form-row input, .form-row select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--sand-dark);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    .form-row input:focus, .form-row select:focus {
+      border-color: var(--teal);
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.15s;
+    }
+    .form-submit:hover { opacity: 0.88; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+    .form-success-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    .form-success h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .form-success p {
+      font-size: 16px;
+      color: var(--ink-mid);
+    }
+    @media (max-width: 768px) {
+      .modal { padding: 36px 24px; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
@@ -378,6 +590,8 @@
       .outcome-grid { grid-template-columns: 1fr; }
       .clio-inner { flex-direction: column; gap: 40px; }
       .clio-badge { width: 100%; }
+      .pricing { padding: 72px 24px; }
+      .pricing-card { padding: 36px 24px; }
       footer { padding: 48px 24px; }
       .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
     }
@@ -400,7 +614,7 @@
     <h1 class="hero-headline">Billing narratives. Dictated, polished, done.</h1>
     <p class="hero-sub">Speak your time entry. Narrate turns it into a professional billing narrative and saves it directly to Clio — in seconds.</p>
     <div class="hero-cta">
-      <a href="https://app.narratebilling.com" class="btn-primary">Get Started →</a>
+      <button onclick="openModal()" class="btn-primary" style="border:none;cursor:pointer;">Request Access →</button>
     </div>
   </section>
 
@@ -485,6 +699,114 @@
       </div>
     </div>
   </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2 class="pricing-headline">Simple, transparent pricing.</h2>
+    <p class="pricing-sub">One plan. Everything included. No setup fees.</p>
+    <div class="pricing-card">
+      <div class="pricing-amount">
+        <span class="pricing-dollar">$</span>
+        <span class="pricing-number">149</span>
+      </div>
+      <div class="pricing-per">per attorney / month</div>
+      <div class="pricing-roi">Attorneys billing $300/hr recover the cost in under 2 hours of recaptured time per month.</div>
+      <hr class="pricing-divider">
+      <ul class="pricing-features">
+        <li>Unlimited voice time entries</li>
+        <li>AI-polished billing narratives</li>
+        <li>Direct Clio Manage integration</li>
+        <li>Works on mobile and desktop</li>
+        <li>Dedicated onboarding support</li>
+      </ul>
+      <button onclick="openModal()" class="btn-primary" style="display:block;width:100%;text-align:center;border:none;cursor:pointer;">Request Access →</button>
+    </div>
+  </section>
+
+  <!-- Request Access Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalHeadline">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      <div class="section-label" style="color:var(--teal);">Get started</div>
+      <h2 class="modal-headline" id="modalHeadline">Let's get your firm set up.</h2>
+      <p class="modal-sub">Fill out the form and we'll be in touch within one business day to get you onboarded.</p>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <label for="fieldName">Your name</label>
+          <input type="text" id="fieldName" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-row">
+          <label for="fieldFirm">Firm name</label>
+          <input type="text" id="fieldFirm" placeholder="Smith & Associates" required>
+        </div>
+        <div class="form-row">
+          <label for="fieldEmail">Email address</label>
+          <input type="email" id="fieldEmail" placeholder="jane@smithlaw.com" required>
+        </div>
+        <div class="form-row">
+          <label for="fieldAttorneys">Number of attorneys</label>
+          <select id="fieldAttorneys" required>
+            <option value="" disabled selected>Select…</option>
+            <option value="1">Just me (1)</option>
+            <option value="2-5">2–5</option>
+            <option value="6-10">6–10</option>
+            <option value="11+">11+</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Request Access →</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✓</div>
+        <h3>Thanks — we'll be in touch soon.</h3>
+        <p>Expect to hear from us within one business day.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      const payload = {
+        name:       document.getElementById('fieldName').value,
+        firm:       document.getElementById('fieldFirm').value,
+        email:      document.getElementById('fieldEmail').value,
+        attorneys:  document.getElementById('fieldAttorneys').value,
+      };
+
+      try {
+        await fetch('https://app.narratebilling.com/api/contact', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+      } catch (_) {}
+
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  </script>
 
   <!-- Footer -->
   <footer>
