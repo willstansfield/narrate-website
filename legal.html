@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Privacy — Narrate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1E3A5F;
+      --navy-dark: #0D1B3E;
+      --teal:      #02C4D8;
+      --sand:      #F5F4F1;
+      --sand-dark: #E8E6E1;
+      --ink:       #1C1C1E;
+      --ink-mid:   #374151;
+      --white:     #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-mark {
+      width: 36px; height: 36px;
+      background: var(--navy);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .nav-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .nav-login {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy-dark);
+      text-decoration: none;
+      padding: 8px 18px;
+      background: var(--teal);
+      border-radius: 7px;
+      transition: opacity 0.15s;
+    }
+    .nav-login:hover { opacity: 0.88; }
+
+    /* ── Legal content ── */
+    .legal-hero {
+      background: var(--navy-dark);
+      padding: 120px 40px 64px;
+      text-align: center;
+    }
+    .legal-hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .legal-hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .legal-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 40px 100px;
+    }
+
+    .legal-toc {
+      background: var(--sand);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+    .legal-toc p {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .legal-toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 4px 0;
+      opacity: 0.75;
+    }
+    .legal-toc a:hover { opacity: 1; text-decoration: underline; }
+
+    .legal-section { margin-bottom: 56px; }
+    .legal-section h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-top: 8px;
+    }
+    .legal-section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 24px 0 8px;
+    }
+    .legal-section p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .legal-section ul {
+      list-style: disc;
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .legal-section ul li {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+    .legal-divider {
+      border: none;
+      border-top: 1px solid var(--sand-dark);
+      margin: 56px 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy-dark);
+      padding: 60px 40px;
+    }
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-mark {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--white);
+    }
+    .footer-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-right {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      text-align: right;
+    }
+    .footer-right a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      display: block;
+      margin-top: 4px;
+    }
+    .footer-right a:hover { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .legal-hero { padding: 100px 24px 48px; }
+      .legal-body { padding: 48px 24px 72px; }
+      footer { padding: 48px 24px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="/">
+      <div class="nav-mark">N</div>
+      <span class="nav-name">Narrate</span>
+    </a>
+    <a href="https://app.narratebilling.com" class="nav-login">Log in</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="legal-hero">
+    <h1>Terms &amp; Privacy</h1>
+    <p>Last updated June 16, 2026</p>
+  </div>
+
+  <!-- Body -->
+  <div class="legal-body">
+
+    <div class="legal-toc">
+      <p>On this page</p>
+      <a href="#terms">Terms of Service</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Terms of Service -->
+    <div class="legal-section" id="terms">
+      <h2>Terms of Service</h2>
+
+      <p>These Terms of Service ("Terms") govern your access to and use of Narrate ("Service"), operated by Narrate ("we," "us," or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+
+      <h3>1. Description of Service</h3>
+      <p>Narrate is a voice-first billing tool that transcribes spoken time entries, generates professional billing narratives using artificial intelligence, and saves them to your Clio Manage account. The Service is intended for licensed attorneys and law firm staff.</p>
+
+      <h3>2. Subscriptions and Payment</h3>
+      <p>Access to Narrate requires a paid subscription at $149 per attorney per month. Subscriptions are billed monthly and begin on the date your first invoice is paid. After the first payment, your card on file will be charged automatically on the same day of each subsequent month.</p>
+
+      <h3>3. Cancellation and Access</h3>
+      <p>You may cancel your subscription at any time by contacting us at <a href="mailto:will@narratebilling.com">will@narratebilling.com</a>. Upon cancellation, your access to the Service will continue through the end of the billing period already paid for. No access is provided beyond that date, and no refunds are issued for the remaining unused portion of the current billing period.</p>
+
+      <h3>4. Refund Policy</h3>
+      <p>All subscription fees are non-refundable. We do not offer pro-rated refunds for unused time within a billing period. If you believe an error has been made in your billing, please contact us and we will review your case in good faith.</p>
+
+      <h3>5. Acceptable Use</h3>
+      <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You may not use the Service to process information unrelated to legitimate legal billing, attempt to reverse-engineer the Service, or share your account credentials with unauthorized users.</p>
+
+      <h3>6. Service Availability</h3>
+      <p>We strive to maintain reliable access to the Service but do not guarantee uninterrupted availability. We are not liable for downtime caused by maintenance, third-party services (including Clio or Microsoft Azure), or circumstances outside our reasonable control.</p>
+
+      <h3>7. Disclaimer of Warranties</h3>
+      <p>The Service is provided "as is" without warranties of any kind, express or implied. We do not warrant that AI-generated billing narratives are accurate, complete, or suitable for any particular matter. You are responsible for reviewing all narratives before submission to clients.</p>
+
+      <h3>8. Limitation of Liability</h3>
+      <p>To the fullest extent permitted by law, Narrate shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Service. Our total liability to you for any claim shall not exceed the amount you paid us in the three months preceding the claim.</p>
+
+      <h3>9. Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of Georgia, without regard to its conflict of law provisions. Any disputes shall be resolved in the courts located in Georgia.</p>
+
+      <h3>10. Changes to Terms</h3>
+      <p>We may update these Terms from time to time. We will notify you of material changes via email. Continued use of the Service after changes become effective constitutes your acceptance of the revised Terms.</p>
+    </div>
+
+    <hr class="legal-divider">
+
+    <!-- Privacy Policy -->
+    <div class="legal-section" id="privacy">
+      <h2>Privacy Policy</h2>
+
+      <p>This Privacy Policy describes how Narrate collects, uses, and protects information about you when you use our Service.</p>
+
+      <h3>1. Information We Collect</h3>
+      <p>We collect the following information to provide and improve the Service:</p>
+      <ul>
+        <li><strong>Account information</strong> — your name and email address, obtained via Clio OAuth authentication.</li>
+        <li><strong>Audio recordings</strong> — voice recordings you make within the app, transmitted to Microsoft Azure for transcription. Recordings are not stored after processing.</li>
+        <li><strong>Billing information</strong> — payment details are handled by Stripe and are never stored on our servers.</li>
+        <li><strong>Usage data</strong> — basic logs of API activity for debugging and service improvement.</li>
+      </ul>
+
+      <h3>2. How We Use Your Information</h3>
+      <ul>
+        <li>To authenticate you and maintain your session.</li>
+        <li>To transcribe audio and generate billing narratives.</li>
+        <li>To save time entries to your Clio account on your behalf.</li>
+        <li>To send service-related communications (billing, onboarding, updates).</li>
+      </ul>
+
+      <h3>3. Third-Party Services</h3>
+      <p>We rely on the following third-party services to operate:</p>
+      <ul>
+        <li><strong>Clio</strong> — practice management platform where your time entries are saved.</li>
+        <li><strong>Microsoft Azure OpenAI</strong> — used for audio transcription and narrative generation.</li>
+        <li><strong>Stripe</strong> — payment processing. We do not store card numbers or banking details.</li>
+        <li><strong>Upstash</strong> — session and token storage.</li>
+        <li><strong>Vercel</strong> — application hosting and deployment.</li>
+      </ul>
+
+      <h3>4. Attorney-Client Confidentiality</h3>
+      <p>You may dictate information related to client matters when using the Service. You are responsible for ensuring your use of Narrate complies with your professional obligations, including rules governing attorney-client privilege and confidentiality. Audio recordings are transmitted to Microsoft Azure solely for transcription and are not retained after processing. We recommend consulting your state bar's ethics guidance on the use of cloud-based AI tools before using the Service for sensitive matters.</p>
+
+      <h3>5. Data Retention</h3>
+      <p>Time entry data is stored in your Clio account, which is governed by Clio's own privacy policy. We retain session data for 30 days. Audio recordings are not retained after transcription is complete.</p>
+
+      <h3>6. Data Security</h3>
+      <p>We use industry-standard security practices including encrypted connections (HTTPS), httpOnly session cookies, and access-controlled data storage. No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h3>7. Your Rights</h3>
+      <p>You may request deletion of your account and associated data at any time by contacting us. Upon cancellation, your session data is deleted. Time entries saved to Clio remain in your Clio account and are subject to Clio's data policies.</p>
+
+      <h3>8. Changes to This Policy</h3>
+      <p>We may update this Privacy Policy periodically. We will notify you of material changes via email. Your continued use of the Service constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <hr class="legal-divider">
+
+    <div class="legal-section" id="contact">
+      <h2>Contact</h2>
+      <p>If you have questions about these Terms or our Privacy Policy, please contact us at <a href="mailto:will@narratebilling.com" style="color:var(--navy);">will@narratebilling.com</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-mark">N</div>
+        <div>
+          <div class="footer-name">Narrate</div>
+          <div class="footer-tagline">Voice-first billing for attorneys</div>
+        </div>
+      </div>
+      <div class="footer-right">
+        © 2026 Narrate
+        <a href="/legal.html">Terms &amp; Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
