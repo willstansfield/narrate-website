@@ -76,6 +76,17 @@
       color: var(--ink-mid);
       font-weight: 400;
     }
+    .nav-login {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 8px 18px;
+      border: 1px solid var(--sand-dark);
+      border-radius: 7px;
+      transition: background 0.15s;
+    }
+    .nav-login:hover { background: var(--sand); }
 
     /* ── Sections ── */
     section { width: 100%; }
@@ -605,7 +616,7 @@
       <div class="nav-mark">N</div>
       <span class="nav-name">Narrate</span>
     </a>
-    <span class="nav-tag">Voice-first billing for attorneys</span>
+    <a href="https://app.narratebilling.com" class="nav-login">Log in</a>
   </nav>
 
   <!-- Hero -->
@@ -613,9 +624,6 @@
     <div class="hero-eyebrow">Introducing Narrate</div>
     <h1 class="hero-headline">Billing narratives. Dictated, polished, done.</h1>
     <p class="hero-sub">Speak your time entry. Narrate turns it into a professional billing narrative and saves it directly to Clio — in seconds.</p>
-    <div class="hero-cta">
-      <button onclick="openModal()" class="btn-primary" style="border:none;cursor:pointer;">Request Access →</button>
-    </div>
   </section>
 
   <!-- Problem -->
