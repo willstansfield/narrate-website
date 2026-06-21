@@ -802,6 +802,64 @@
       .faq { padding: 72px 24px; }
     }
 
+    /* ── Founder ── */
+    .founder {
+      background: var(--white);
+      padding: 100px 40px;
+    }
+    .founder-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+    }
+    .founder-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .founder-name {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .founder-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .founder-bio {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .founder-email {
+      font-size: 14px;
+      color: var(--navy);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid var(--teal);
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+    .founder-email:hover { opacity: 0.7; }
+    @media (max-width: 768px) {
+      .founder { padding: 72px 24px; }
+      .founder-inner { flex-direction: column; gap: 32px; align-items: flex-start; }
+      .founder-photo { width: 120px; height: 120px; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
@@ -1005,6 +1063,19 @@
       <button onclick="openModal()" class="btn-primary" style="display:block;width:100%;text-align:center;border:none;cursor:pointer;">Apply for early access →</button>
       <p style="margin:16px 0 0;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">No credit card required. We'll add you within one business day of your application.</p>
     </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="founder">
+    <div class="founder-inner">
+      <img src="will-headshot.jpg" alt="Will Stansfield" class="founder-photo">
+      <div>
+        <div class="founder-name">Will Stansfield</div>
+        <div class="founder-title">Founder</div>
+        <p class="founder-bio">I've spent 15 years building software that helps businesses run better — from restaurant technology to telecommunications. I built Narrate because billing admin is one of the most painful parts of running a law firm, and it's a problem software should already have solved.</p>
+        <a href="mailto:will@narratebilling.com" class="founder-email">will@narratebilling.com</a>
+      </div>
     </div>
   </section>
 
