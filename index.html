@@ -33,10 +33,24 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ── Beta banner ── */
+    .beta-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 101;
+      background: var(--teal);
+      color: var(--navy-dark);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      letter-spacing: 0.2px;
+    }
+
     /* ── Nav ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 34px; left: 0; right: 0;
       z-index: 100;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(12px);
@@ -115,7 +129,7 @@
     /* ── Hero ── */
     .hero {
       background: var(--navy-dark);
-      padding: 160px 40px 120px;
+      padding: 194px 40px 120px;
       text-align: center;
     }
     .hero-eyebrow {
@@ -788,7 +802,7 @@
     /* ── Responsive ── */
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
-      .hero { padding: 120px 24px 80px; }
+      .hero { padding: 154px 24px 80px; }
       .problem, .how, .outcomes, .clio { padding: 72px 24px; }
       .steps { grid-template-columns: 1fr; gap: 48px; }
       .steps::before { display: none; }
@@ -804,6 +818,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Beta banner -->
+  <div class="beta-banner">🔒 Private Beta — Narrate is free during beta. Apply below for access.</div>
 
   <!-- Nav -->
   <nav>
@@ -821,12 +838,12 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-eyebrow">Introducing Narrate</div>
+    <div class="hero-eyebrow">Private Beta</div>
     <h1 class="hero-headline">Billing narratives. Dictated, polished, done.</h1>
     <p class="hero-sub">Speak your time entry. Narrate turns it into a professional billing narrative and saves it directly to Clio — in seconds.</p>
     <div class="hero-cta">
-      <button onclick="openModal()" class="btn-primary" style="border:none;cursor:pointer;">Start your free trial →</button>
-      <p style="margin-top:14px;font-size:13px;color:rgba(255,255,255,0.4);">30 days free · No charge until your trial ends · Cancel anytime</p>
+      <button onclick="openModal()" class="btn-primary" style="border:none;cursor:pointer;">Apply for early access →</button>
+      <p style="margin-top:14px;font-size:13px;color:rgba(255,255,255,0.4);">Free during beta · No credit card required · Limited spots</p>
     </div>
   </section>
 
@@ -966,15 +983,14 @@
   <section class="pricing" id="pricing">
     <div class="container">
     <div class="section-label">Pricing</div>
-    <h2 class="pricing-headline">Simple, transparent pricing.</h2>
-    <p class="pricing-sub">One plan. Everything included. Start with a 30-day free trial — no charge until your trial ends.</p>
+    <h2 class="pricing-headline">Free during beta.</h2>
+    <p class="pricing-sub">Beta access is free and invite-only. Pilot pricing starts at $149/attorney/month — apply now and lock in your rate when we launch.</p>
     <div class="pricing-card">
-      <div class="pricing-amount">
-        <span class="pricing-dollar">$</span>
-        <span class="pricing-number">149</span>
+      <div class="pricing-amount" style="justify-content:center;margin-bottom:4px;">
+        <span class="pricing-number" style="font-size:48px;">Free</span>
       </div>
-      <div class="pricing-per">per attorney / month</div>
-      <div class="pricing-roi">Attorneys recover the cost in less than one hour of recovered time per month.</div>
+      <div class="pricing-per">during private beta</div>
+      <div class="pricing-roi" style="margin-bottom:32px;">Pilot pricing: $149/attorney/month — locked in for beta participants.</div>
       <hr class="pricing-divider">
       <ul class="pricing-features">
         <li>Unlimited voice time entries</li>
@@ -983,8 +999,8 @@
         <li>Works on mobile and desktop</li>
         <li>Dedicated onboarding support</li>
       </ul>
-      <button onclick="openModal()" class="btn-primary" style="display:block;width:100%;text-align:center;border:none;cursor:pointer;">Start your free trial →</button>
-      <p style="margin:16px 0 0;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">30-day free trial. Card required to start — you won't be charged until your trial ends. Cancel anytime before then.</p>
+      <button onclick="openModal()" class="btn-primary" style="display:block;width:100%;text-align:center;border:none;cursor:pointer;">Apply for early access →</button>
+      <p style="margin:16px 0 0;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.6;">No credit card required. We'll add you within one business day of your application.</p>
     </div>
     </div>
   </section>
@@ -1004,12 +1020,12 @@
           <div class="faq-a">Absolutely. Audio recordings are transcribed in real time and immediately discarded — nothing is stored by Narrate. Your billing narratives sync directly to Clio and are never retained on our servers. Your data is never used to train AI models.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">How does the free trial work?</div>
-          <div class="faq-a">You get 30 days of full access at no cost. We'll collect a card when you sign up, but you won't be charged until your trial ends. You can cancel any time before then and you'll never see a bill.</div>
+          <div class="faq-q">How does beta access work?</div>
+          <div class="faq-a">Beta is completely free — no credit card required. Apply using the form, and we'll add you within one business day. You'll receive an email with your access link and can start billing immediately.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">What happens after the trial?</div>
-          <div class="faq-a">After 30 days, your subscription starts at $149 per attorney per month. Stripe handles billing automatically — no invoices to chase, no manual renewals. You can cancel at any time from your account settings.</div>
+          <div class="faq-q">What happens after the beta?</div>
+          <div class="faq-a">After beta, Narrate moves to a paid pilot at $149 per attorney per month. Beta participants lock in that rate for their first year. We'll give you plenty of notice before any billing begins.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Does it work on mobile?</div>
@@ -1027,9 +1043,9 @@
   <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalHeadline">
       <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-      <div class="section-label" style="color:var(--teal);">Start your free trial</div>
-      <h2 class="modal-headline" id="modalHeadline">30 days free. No charge until your trial ends.</h2>
-      <p class="modal-sub">Fill out the form and we'll be in touch within one business day to get you set up and billing faster.</p>
+      <div class="section-label" style="color:var(--teal);">Private Beta</div>
+      <h2 class="modal-headline" id="modalHeadline">Apply for beta access.</h2>
+      <p class="modal-sub">Beta is free and invite-only. Submit your details and we'll add you within one business day — no credit card required.</p>
 
       <form id="contactForm">
         <div class="form-row">
@@ -1059,8 +1075,8 @@
 
       <div class="form-success" id="formSuccess">
         <div class="form-success-icon">✓</div>
-        <h3>Thanks — we'll be in touch soon.</h3>
-        <p>Expect to hear from us within one business day.</p>
+        <h3>You're on the list.</h3>
+        <p>We'll add you to the beta and follow up within one business day with your access link.</p>
       </div>
     </div>
   </div>
