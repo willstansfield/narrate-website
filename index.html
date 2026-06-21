@@ -14,8 +14,6 @@
     :root {
       --navy:      #1E3A5F;
       --navy-dark: #0D1B3E;
-      --teal:      #0E7490;
-      --teal-text: #0891B2;
       --sand:      #F5F4F1;
       --sand-dark: #E8E6E1;
       --ink:       #1C1C1E;
@@ -39,7 +37,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 101;
-      background: var(--teal);
+      background: var(--navy-dark);
       color: var(--white);
       text-align: center;
       font-size: 13px;
@@ -110,7 +108,7 @@
       color: var(--white);
       text-decoration: none;
       padding: 8px 18px;
-      background: var(--teal);
+      background: var(--navy);
       border-radius: 7px;
       transition: opacity 0.15s;
     }
@@ -142,7 +140,7 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--teal-text);
+      color: var(--ink-mid);
       margin-bottom: 24px;
     }
     .hero-headline {
@@ -168,7 +166,7 @@
     }
     .btn-primary {
       display: inline-block;
-      background: var(--teal);
+      background: var(--navy);
       color: var(--white);
       font-family: 'Inter', sans-serif;
       font-size: 16px;
@@ -192,7 +190,7 @@
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--teal-text);
+      color: var(--ink-mid);
       margin-bottom: 16px;
     }
     .problem-headline {
@@ -295,7 +293,7 @@
       margin-bottom: 16px;
     }
     .ba-label-before { color: var(--ink-mid); }
-    .ba-label-after  { color: var(--teal-text); }
+    .ba-label-after  { color: var(--navy); }
     .ba-text-before {
       font-size: 17px;
       color: #6B7280;
@@ -317,10 +315,10 @@
     }
     .ba-arrow {
       width: 28px; height: 28px;
-      background: var(--teal);
+      background: var(--navy);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: var(--navy-dark);
+      color: var(--white);
       font-size: 15px;
       font-weight: 700;
       flex-shrink: 0;
@@ -376,7 +374,7 @@
     .outcome-accent {
       width: 32px;
       height: 3px;
-      background: var(--teal);
+      background: var(--navy);
       border-radius: 2px;
       margin-bottom: 20px;
     }
@@ -429,7 +427,7 @@
     }
     .clio-badge-dot {
       width: 10px; height: 10px;
-      background: var(--teal);
+      background: var(--navy);
       border-radius: 50%;
       display: inline-block;
       margin-right: 8px;
@@ -536,7 +534,7 @@
       padding: 100px 40px;
       text-align: center;
     }
-    .pricing .section-label { color: var(--teal-text); }
+    .pricing .section-label { color: rgba(255,255,255,0.55); }
     .pricing-headline {
       font-family: 'Lora', Georgia, serif;
       font-size: clamp(28px, 4vw, 44px);
@@ -588,7 +586,7 @@
     }
     .pricing-roi {
       font-size: 13px;
-      color: var(--teal-text);
+      color: rgba(255,255,255,0.65);
       margin-bottom: 32px;
       font-weight: 500;
     }
@@ -615,7 +613,7 @@
       content: '';
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--teal);
+      background: rgba(255,255,255,0.6);
       flex-shrink: 0;
     }
 
@@ -699,7 +697,7 @@
       appearance: none;
     }
     .form-row input:focus, .form-row select:focus {
-      border-color: var(--teal);
+      border-color: var(--navy);
     }
     .form-submit {
       width: 100%;
@@ -780,7 +778,7 @@
       content: '+';
       font-size: 22px;
       font-weight: 300;
-      color: var(--teal-text);
+      color: var(--navy);
       flex-shrink: 0;
       transition: transform 0.2s;
     }
@@ -836,7 +834,7 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--teal-text);
+      color: var(--ink-mid);
       margin-bottom: 16px;
     }
     .founder-bio {
@@ -850,7 +848,7 @@
       color: var(--navy);
       font-weight: 500;
       text-decoration: none;
-      border-bottom: 1px solid var(--teal);
+      border-bottom: 1px solid var(--ink-mid);
       padding-bottom: 1px;
       transition: opacity 0.15s;
     }
@@ -974,7 +972,7 @@
   <!-- Outcomes -->
   <section class="outcomes">
     <div class="container">
-      <div class="section-label" style="color: var(--teal-text);">The difference</div>
+      <div class="section-label">The difference</div>
       <h2 class="outcomes-headline">What changes when billing takes ten seconds.</h2>
       <div class="outcome-grid">
         <div class="outcome-item">
@@ -1118,7 +1116,7 @@
   <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalHeadline">
       <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
-      <div class="section-label" style="color:var(--teal-text);">Private Beta</div>
+      <div class="section-label">Private Beta</div>
       <h2 class="modal-headline" id="modalHeadline">Apply for beta access.</h2>
       <p class="modal-sub">Beta is free and invite-only. Submit your details and we'll add you within one business day — no credit card required.</p>
 
